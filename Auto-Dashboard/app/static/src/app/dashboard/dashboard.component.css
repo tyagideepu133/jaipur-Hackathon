@@ -1,0 +1,37 @@
+div.main-container{
+    width: 100%
+}
+#modalLauncher{
+    display: none;
+}
+
+div.container-fluid{
+    height: 100vh;
+}
+#mainRow{
+    height: 99vh;
+}
+#mapRow{
+    height: 74vh;
+}
+#alertRow{
+    height: 25vh;   
+}
+agm-map {
+    height: 74vh;
+  }
+#googleMap{
+    width: 100%;
+}
+
+#speedHolder{
+    height: 73vh;
+}
+
+#buttonHolder div.main-button{
+    margin-top: 10px;
+}
+
+#buttonHolder div.main-button button{
+    width: 100%;    
+}

@@ -1,0 +1,72 @@
+<div class="main-container bg-dark">
+    <div class="container-fluid">
+        <div class="row" id="mainRow">
+            <div class="col-3">
+                <div id="speedHolder">
+
+                </div>
+                <div id="buttonHolder" class="text-center">
+                    <div class="main-button">
+                        <button class="btn btn-lg btn-danger" (click)="needEmergency()">Emergency Contact</button>
+                    </div>
+                    <div class="main-button">
+                        <button class="btn btn-lg btn-primary" (click)="disconnectServer()">Shut Down</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="row" id="mapRow">
+                    <div id="googleMap">
+                        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="14">
+                            <agm-marker [latitude]="my_lat" [label]="'Me'" [longitude]="my_lng" *ngIf="my_lat"></agm-marker>
+                             <div *ngFor="let marker of markers">
+                                <agm-marker [latitude]="marker.car_lat" [label]="'Emergency'" [longitude]="marker.car_lon" (markerClick)="markerClicked(
+                                    marker.car_lat,marker.car_lon,marker.car_number,marker.car_driver_id
+                                )"></agm-marker>
+                            </div>
+                            <div *ngFor="let victim of victims">
+                                <agm-marker [latitude]="victim.vc_current_lat" [label]="'victim'" [longitude]="victim.vc_current_lon"></agm-marker>
+                                <agm-marker [latitude]="victim.ec_current_lat" [label]="'helper'" [longitude]="victim.ec_current_lon"></agm-marker>
+                                <agm-polyline>
+                                    <agm-polyline-point [latitude]="victim.vc_current_lat" [longitude]="victim.vc_current_lon"></agm-polyline-point>
+                                    <agm-polyline-point [latitude]="victim.ec_current_lat" [longitude]="victim.ec_current_lon"></agm-polyline-point>
+                                </agm-polyline>
+                            </div>
+                        </agm-map>
+                    </div>
+                </div>
+                <div class="row" id="alertRow">
+                    <div class="col-6">
+                        <h1>Hello world</h1>
+                    </div>
+                    <div class="col-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" #emergencyModal id="emergencyModal" tabindex="-1" role="dialog" aria-labelledby="emergencyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="emergencyModalLabel">Emergency</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you really want to send emergency request
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="needEmergency()">Send</button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#emergencyModal" id="modalLauncher">
+        Launch demo modal
+</button>

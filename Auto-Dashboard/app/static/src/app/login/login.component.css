@@ -1,0 +1,26 @@
+#welcomeScreen{
+    width: 100%;
+    color: white;
+    height: 100vh;
+}
+
+#welcomeScreen div.main-container{
+    width: 700px;
+    margin: auto;
+}
+
+
+#welcomeScreen img{
+    width: 200px;
+    margin: auto;
+    padding-top: 50px;
+    display: block;
+}
+
+#welcomeMessage{
+    font-size: 60px;
+    text-transform: uppercase;
+    -webkit-transition: all 1s ease-in;
+    -moz-transition: all 1s ease-in;
+    transition: all 1s ease-in;
+}
