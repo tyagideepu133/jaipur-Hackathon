@@ -9,7 +9,7 @@ chardet==3.0.4
 click==6.7
 constantly==15.1.0
 daphne==1.4.2
-Django==2.0.3
+Django==2.2.10
 djangorestframework==3.7.7
 Flask==0.12.2
 Flask-Cors==3.0.3
