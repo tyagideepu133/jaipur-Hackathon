@@ -10,7 +10,7 @@ click==6.7
 constantly==15.1.0
 daphne==1.4.2
 Django==2.0.3
-djangorestframework==3.7.7
+djangorestframework==3.11.2
 Flask==0.12.2
 Flask-Cors==3.0.3
 Flask-SocketIO==2.9.6
